@@ -321,7 +321,9 @@ class Url
             // (see https://www.w3.org/TR/1999/REC-html401-19991224/appendix
             // /notes.html#h-B.2.2)
             $argSeparator = (string) ini_get('arg_separator.input');
-            if (str_contains($argSeparator, ';')) {
+            if (str_contains($argSeparator, '&')) {
+                $separator = '&';
+            } elseif (str_contains($argSeparator, ';')) {
                 $separator = ';';
             } elseif ($argSeparator !== '') {
                 $separator = $argSeparator[0];
